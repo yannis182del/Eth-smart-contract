@@ -1,9 +1,9 @@
 pragma solidity >=0.4.21 <0.7.0;
 
 contract RandomBet {
+    uint number;
     function rand()
     public
-    view
     returns(uint256)
 {
     uint256 seed = uint256(keccak256(abi.encodePacked(
@@ -13,7 +13,10 @@ contract RandomBet {
         ((uint256(keccak256(abi.encodePacked(msg.sender)))) / (now)) +
         block.number
     )));
-
-    return (seed - ((seed / 1000) * 1000));
+    return number = (seed - ((seed / 1000) * 1000));
  }
+
+   function get() public view returns (uint) {
+        return number;
+    }
 }
